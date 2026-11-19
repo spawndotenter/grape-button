@@ -16,7 +16,8 @@ static void addGrapeFace(FLAlertLayer* alert) {
 
 static void goToLevel() {
     auto glm = GameLevelManager::sharedState();
-    if (!glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, 0)) {
+    if (!glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, true, 0) &&
+        !glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, false, 0)) {
         glm->likeItem(LikeItemType::Level, GRAPE_LEVEL_ID, true, 0);
     }
     auto level = GJGameLevel::create();
