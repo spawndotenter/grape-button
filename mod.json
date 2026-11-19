@@ -1,5 +1,5 @@
 {
-  "geode": "5.0.0",
+  "geode": "5.11.2",
   "gd": {
     "android": "2.2081"
   },
@@ -7,7 +7,7 @@
   "id": "spawndotenter.grapebutton",
   "name": "Grape Button",
   "developer": "spawndotenter",
-  "description": "how many grapes can you fit in your mouth",
+  "description": "Adds a button to the main menu that plays the chest sound.",
   "resources": {
     "sprites": ["grape.png"]
   }
