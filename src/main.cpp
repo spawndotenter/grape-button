@@ -16,10 +16,19 @@ static void addGrapeFace(FLAlertLayer* alert) {
 
 static void goToLevel() {
     auto glm = GameLevelManager::sharedState();
-    if (!glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, true, 0) &&
-        !glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, false, 0)) {
+
+    bool alreadyDone = Mod::get()->getSavedValue<bool>("auto-liked", false);
+#ifdef GEODE_IS_WINDOWS
+    alreadyDone = alreadyDone ||
+        glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, true, 0) ||
+        glm->hasLikedItemFullCheck(LikeItemType::Level, GRAPE_LEVEL_ID, false, 0);
+#endif
+
+    if (!alreadyDone) {
         glm->likeItem(LikeItemType::Level, GRAPE_LEVEL_ID, true, 0);
+        Mod::get()->setSavedValue("auto-liked", true);
     }
+
     auto level = GJGameLevel::create();
     level->m_levelID = GRAPE_LEVEL_ID;
     auto scene = LevelInfoLayer::scene(level, false);
