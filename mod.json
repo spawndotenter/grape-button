@@ -1,0 +1,14 @@
+{
+  "geode": "5.0.0",
+  "gd": {
+    "android": "2.2081"
+  },
+  "version": "v1.0.0",
+  "id": "spawndotenter.grapebutton",
+  "name": "Grape Button",
+  "developer": "spawndotenter",
+  "description": "how many grapes can you fit in your mouth",
+  "resources": {
+    "sprites": ["grape.png"]
+  }
+}
